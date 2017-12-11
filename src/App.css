@@ -43,6 +43,12 @@ body, .app {
   text-align: center;
 }
 
+.bookshelf-books.active {
+  border-style: dotted;
+  border-color: black;  
+  transition: all 1s;
+}
+
 .open-search {
   position: fixed;
   right: 25px;
@@ -113,7 +119,11 @@ body, .app {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  border-color: transparent;
 }
+
+
+
 .books-grid li {
   padding: 10px 15px;
   text-align: left;

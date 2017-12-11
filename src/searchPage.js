@@ -13,11 +13,9 @@ class SearchPage extends Component {
     BooksAPI.search(query).then((search) => {
       console.log(query)
       if(search.error) {
-        if(query === this.state.query)
-        this.setState({search:[]})
+        if(query === this.state.query) this.setState({search:[]})
       }else{
-        if(query === this.state.query)
-        this.setState({search})
+        if(query === this.state.query) this.setState({search})
       }
       console.log(search)
   })}}
@@ -35,14 +33,20 @@ class SearchPage extends Component {
               </div>
             </div>
             <div className="search-books-results">
-            <center>Mostrando {this.state.search.length} resultados</center>
+
+            {this.state.query ? (
+              <center>Showing {this.state.search.length} results for "{this.state.query}"</center>
+            ):(
+              <center>No search has been made</center>
+            )}
               <ol className="books-grid">
 
                 {this.state.search.map(b => {
                   //Get shelf from current state if exists
                   this.props.books.filter((o) => {
                     if(o.id === b.id){
-                      b.shelf=o.shelf;return true;
+                      b.shelf=o.shelf
+                      return true
                     }
                     return false
                   })

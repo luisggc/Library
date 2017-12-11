@@ -35,8 +35,8 @@ class Home extends Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
+            <center style={{padding:10}}>You can drag and drop to change between shelves</center>
               <div>
-
              {status.map(status => {
                return(
                 <div className="bookshelf" key={status[0]} id={status[0]} onDragLeave={(e) => {this.onOut(e,status[0])}} onDragOver={(e) => {this.dragover(e,status[0])}} onDrop={(e) => {this.drop(e,status[0])}}>
